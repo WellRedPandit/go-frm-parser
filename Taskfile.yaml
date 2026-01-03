@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  default:
+    silent: true
+    cmds:
+      - task --list
+
+  build-go-frm:
+    desc: build go-frm
+    aliases: [b]
+    cmds:
+      - |
+        mkdir -p bin
+        go build -o ./bin/go-frm cmd/main.go
+
+  install-go-frm:
+    desc: install go-frm
+    aliases: [i]
+    cmds:
+      - go build -o $(go env GOPATH)/bin/go-frm ./cmd/main.go
+
+  clean:
+    desc: clean up
+    aliases: [c]
+    cmds:
+      - rm -rf bin/*

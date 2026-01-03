@@ -15,15 +15,12 @@ func main() {
 		fmt.Println("Error:", err)
 		return
 	}
-
 	buf := bytes.NewBuffer(file)
-
 	// read and parse frm file
 	result, err := frm.ParseBuffer(path, buf)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	fmt.Printf("====WITHOUT HEADER:\n%s", result.String())
-	fmt.Printf("\n====WITH HEADER:\n%s", result.StringWithHeader())
+	fmt.Print(result.StringWithHeader())
 }
